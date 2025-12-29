@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'he'
+
+collections:
+  - name: "properties"
+    label: "נכסים"
+    folder: "content/properties"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - {label: "שם הנכס (למשל: פנטהאוז בחיפה)", name: "title", widget: "string"}
+      - {label: "תמונה ראשית", name: "thumbnail", widget: "image"}
+      - {label: "סטטוס", name: "status", widget: "select", options: ["למכירה", "נמכר", "הושכר"]}
+      - {label: "מחיר (מספר בלבד)", name: "price", widget: "number", value_type: "int"}
+      - {label: "עיר/שכונה", name: "location", widget: "string"}
+      - {label: "מספר חדרים", name: "rooms", widget: "number"}
+      - {label: "מ״ר", name: "sq_meters", widget: "number"}
+      - {label: "תיאור קצר", name: "body", widget: "text"}
+
+  - name: "testimonials"
+    label: "המלצות לקוחות"
+    folder: "content/testimonials"
+    create: true
+    fields:
+      - {label: "שם הלקוח", name: "client_name", widget: "string"}
+      - {label: "תוכן ההמלצה", name: "quote", widget: "text"}
+      - {label: "תמונת הלקוח (אופציונלי)", name: "photo", widget: "image", required: false}
+      - {label: "קישור לוידאו (יוטיוב)", name: "video_url", widget: "string", required: false}
