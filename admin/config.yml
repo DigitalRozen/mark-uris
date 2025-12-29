@@ -1,34 +1,38 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # או master, תלוי איך זה אצלך בגיטהאב
 
-media_folder: "images/uploads"
+media_folder: "images/uploads" # כאן יישמרו התמונות שמרק יעלה
 public_folder: "/images/uploads"
-
-locale: 'he'
+locale: "he" # ממשק בעברית
 
 collections:
-  - name: "properties"
-    label: "נכסים"
-    folder: "content/properties"
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields:
-      - {label: "שם הנכס (למשל: פנטהאוז בחיפה)", name: "title", widget: "string"}
-      - {label: "תמונה ראשית", name: "thumbnail", widget: "image"}
-      - {label: "סטטוס", name: "status", widget: "select", options: ["למכירה", "נמכר", "הושכר"]}
-      - {label: "מחיר (מספר בלבד)", name: "price", widget: "number", value_type: "int"}
-      - {label: "עיר/שכונה", name: "location", widget: "string"}
-      - {label: "מספר חדרים", name: "rooms", widget: "number"}
-      - {label: "מ״ר", name: "sq_meters", widget: "number"}
-      - {label: "תיאור קצר", name: "body", widget: "text"}
+  - name: "content"
+    label: "ניהול תוכן האתר"
+    files:
+      - name: "properties"
+        label: "🏘️ ניהול נכסים"
+        file: "content/properties.json" # כל הנכסים יישמרו בקובץ הזה
+        description: "כאן ניתן להוסיף, לערוך ולמחוק נכסים מהאתר"
+        fields:
+          - {label: "רשימת הנכסים", name: "items", widget: "list", fields: [
+              {label: "כותרת הנכס", name: "title", widget: "string", default: "פנטהאוז יוקרתי בחיפה"},
+              {label: "תמונה ראשית", name: "image", widget: "image"},
+              {label: "סטטוס", name: "status", widget: "select", options: ["למכירה", "נמכר", "הושכר"], default: "למכירה"},
+              {label: "מחיר (טקסט חופשי)", name: "price", widget: "string", default: "2,500,000 ₪"},
+              {label: "עיר/שכונה", name: "location", widget: "string", default: "חיפה"},
+              {label: "מספר חדרים", name: "rooms", widget: "number", default: 4},
+              {label: "שטח (מ״ר)", name: "sq_meters", widget: "number", default: 100},
+              {label: "קישור לוואטסאפ/פרטים (אופציונלי)", name: "link", widget: "string", required: false}
+            ]}
 
-  - name: "testimonials"
-    label: "המלצות לקוחות"
-    folder: "content/testimonials"
-    create: true
-    fields:
-      - {label: "שם הלקוח", name: "client_name", widget: "string"}
-      - {label: "תוכן ההמלצה", name: "quote", widget: "text"}
-      - {label: "תמונת הלקוח (אופציונלי)", name: "photo", widget: "image", required: false}
-      - {label: "קישור לוידאו (יוטיוב)", name: "video_url", widget: "string", required: false}
+      - name: "testimonials"
+        label: "⭐ המלצות לקוחות"
+        file: "content/testimonials.json"
+        description: "ניהול שורת ההמלצות באתר"
+        fields:
+          - {label: "רשימת ההמלצות", name: "items", widget: "list", fields: [
+              {label: "שם הלקוח", name: "name", widget: "string"},
+              {label: "תוכן ההמלצה", name: "text", widget: "text"},
+              {label: "תמונת הלקוח (אם יש)", name: "image", widget: "image", required: false}
+            ]}

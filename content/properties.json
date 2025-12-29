@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "פנטהאוז יוקרתי בחיפה",
+      "image": "https://next-level.co.il/wp-content/uploads/2025/08/client6208pic1_31059_94202511020_WhatsApp20Image202025-04-0720at2015.00.07201.jpeg",
+      "status": "למכירה",
+      "price": "2,500,000 ₪",
+      "location": "נווה שאנן, חיפה",
+      "rooms": 5,
+      "sq_meters": 120,
+      "link": "https://wa.me/972524445588"
+    },
+    {
+      "title": "דירת 3 חדרים ברח' התיכון",
+      "image": "https://next-level.co.il/wp-content/uploads/2024/02/%D7%A0%D7%9E%D7%9B%D7%A8-%D7%AA%D7%99%D7%9B%D7%95%D7%9F-29-%D7%97%D7%99%D7%A4%D7%94-%D7%9E%D7%A8%D7%A7-%D7%99%D7%95%D7%A8%D7%99%D7%A1.jpg",
+      "status": "נמכר",
+      "price": "1,310,000 ₪",
+      "location": "התיכון 29, חיפה",
+      "rooms": 3,
+      "sq_meters": 59
+    }
+  ]
+}
